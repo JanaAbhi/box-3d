@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Box</title>
+<link rel="stylesheet" href="./box.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="box">
+            <div class="box__face box__face--front">Front</div>
+            <div class="box__face box__face--back">Back</div>
+            <div class="box__face box__face--left">Left</div>
+            <div class="box__face box__face--right">Right</div>
+            <div class="box__face box__face--top">Top</div>
+            <div class="box__face box__face--bottom">Bottom</div>
+        </div>
+    </div>
+    <div class="radio__btn">
+        <input type="radio" name="rotate" value="Front" checked>Front
+        <input type="radio" name="rotate" value="Back">Back
+        <input type="radio" name="rotate" value="Left">Left
+        <input type="radio" name="rotate" value="Right">Right
+        <input type="radio" name="rotate" value="Top">Top
+        <input type="radio" name="rotate" value="Bottom">Bottom
+    </div>
+    <script>
+        const box=document.querySelector('.box');
+        const radioBtn=document.querySelector('.radio__btn');
+        let currentClass='';
+        radioBtn.addEventListener('change',()=>{
+            const checkedRadio=document.querySelector(':checked');
+            const ShowClass='show-' + checkedRadio.value;
+            if(currentClass){
+                box.classList.remove(currentClass)
+            }        
+            box.classList.add(ShowClass);
+            currentClass=ShowClass;
+        });
+    </script>
+</body>
+</html>
